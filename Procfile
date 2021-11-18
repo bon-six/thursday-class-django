@@ -1,0 +1,1 @@
+web gunicorn prj2.wsgi --log-file -
