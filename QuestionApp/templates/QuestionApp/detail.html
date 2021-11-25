@@ -7,11 +7,13 @@
 {% block content %}
 <ol>
     {% if question.choice_set %}
-        {% for c in object.choice_set.all %}
+        {% for c in question.choice_set.all %}
             <li>{{ c.choice_text }}</li><br>
         {% endfor %}
     {% else %}
         There is no any options for this question.
     {% endif %}
 </ol>
+<hr>
+<a href= '{% url 'home' %}'>Back to homepage</a>
 {% endblock %}
