@@ -1,7 +1,14 @@
 {% extends 'QuestionApp/base.html' %}
+{% load static %}
 
-{% block header%}
-    my investigation questionnaire 4
+{% block logo %}
+    <img class="img2" src="{% static 'QuestionApp/img/2.jpg' %}">
+{% endblock %}
+
+{% block header_content%}
+    <h1>
+        my investigation questionnaire 4
+    </h1>
 {% endblock%}
 
 {% block content %}
@@ -14,6 +21,5 @@
         There is no any options for this question.
     {% endif %}
 </ol>
-<hr>
-<a href= '{% url 'home' %}'>Back to homepage</a>
+
 {% endblock %}
