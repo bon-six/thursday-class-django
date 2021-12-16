@@ -1,0 +1,25 @@
+{% extends 'QuestionApp/base.html' %}
+{% load static %}
+
+{% block logo %}
+    <img class="img1" src="{% static 'QuestionApp/img/feedback.jpg' %}">
+{% endblock %}
+
+{% block header_content%}
+    <h1>
+        {{comment.comment_title}}
+    </h1>
+    <div class="flex-wrapper">
+        <div>by: {{comment.user_name}}</div> &ensp;&ensp;
+        <div>Date: {{comment.comment_date}}</div>
+    </div>
+{% endblock%}
+
+{% block content %}
+<p>{{comment.comment_content}}</p>
+<hr>
+<div class="flex-wrapper">
+    <div><a href="{% url 'comment_edit' comment.pk %}">Edit</a></div>&ensp;&ensp;
+    <div><a href="{% url 'comment_del' comment.pk%}">Delete</a></div>
+</div>
+{% endblock %}

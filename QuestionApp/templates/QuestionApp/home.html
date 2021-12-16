@@ -13,13 +13,26 @@
 
 {% block content %}
 <ol>
-{% if object_list %}
-    {% for q in object_list %}
-        <li><a href="{% url 'question_detail' q.pk %}">{{ q.question_text}}</a></li><br>
-    {% endfor %}
-{% else %}
-    There is no question published yet.
-{% endif %}
+    {% if question_list %}
+        {% for q in question_list %}
+            <li><a href="{% url 'question_detail' q.pk %}">{{ q.question_text}}</a></li><br>
+        {% endfor %}
+    {% else %}
+        <p>There is no question published yet.</p>
+    {% endif %}
+</ol>
+<hr>
+<ol>
+    <h3>Comments / Feedbacks</h3>
+    {% if comment_list %}
+        {% for c in comment_list %}
+            <li><a href="{% url 'comment_detail' c.pk %}">{{ c.comment_title}}</a></li><br>
+        {% endfor %}
+    {% else %}
+        <p>There is no any comment/feedback yet.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'comment_add' %}">Leave your feedback</a>
 </ol>
 {% endblock %}
 

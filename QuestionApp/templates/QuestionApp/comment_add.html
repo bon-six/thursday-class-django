@@ -1,0 +1,19 @@
+{% extends 'QuestionApp/base.html' %}
+{% load static %}
+
+{% block logo %}
+    <img class="img1" src="{% static 'QuestionApp/img/feedback.jpg' %}">
+{% endblock %}
+
+{% block header_content%}
+    <h1>
+        Leave your feedback to us!
+    </h1>
+{% endblock%}
+
+{% block content %}
+    <form action="" method="post"> {% csrf_token%}
+        {{ form.as_p}}
+        <input type="submit" value="Save"/>
+    </form>
+{% endblock %}

@@ -26,3 +26,6 @@ header {
     height:auto;
     float: left;
 }
+.flex-wrapper{
+    display: flex;
+}

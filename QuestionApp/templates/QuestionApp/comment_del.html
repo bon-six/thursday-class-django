@@ -1,0 +1,20 @@
+{% extends 'QuestionApp/base.html' %}
+{% load static %}
+
+{% block logo %}
+    <img class="img1" src="{% static 'QuestionApp/img/feedback.jpg' %}">
+{% endblock %}
+
+{% block header_content%}
+    <h1>
+        Delete your feedback
+    </h1>
+{% endblock%}
+
+{% block content %}
+    <form action="" method="post"> {% csrf_token%}
+        {{ form.as_p}}
+        <input type="submit" value="Confirm"/>
+        <a href="{% url 'home' %}">Cancel</a>
+    </form>
+{% endblock %}
