@@ -1,0 +1,29 @@
+{% extends 'QuestionApp/base.html' %}
+{% load static %}
+
+{% block logo %}
+    <img class="img1" src="{% static 'QuestionApp/img/2.jpg' %}"/>
+{% endblock %}
+
+{% block header_content %}
+    <h2>{{ question.question_text }}</h2>
+{% endblock %}
+
+{% block content %}
+    {% if error_msg %}
+        <p>! {{error_msg}} </p>
+    {% endif %}
+    <form action="" method="post"> {% csrf_token %}
+        {% comment %}
+        <fieldset>
+            {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice_{{forloop.counter}}" value="{{forloop.counter}}">
+            <label for="choice_{{forloop.counter}}">{{choice.choice_text}}</label>
+            <br>
+            {% endfor %}
+        </fieldset>>
+        {% endcomment %}
+        {{ form.as_p }}
+        <input type="submit" value="Vote">
+    </form>
+{% endblock %}

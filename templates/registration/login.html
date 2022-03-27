@@ -1,0 +1,17 @@
+{% extends 'QuestionApp/base.html' %}
+{% load static %}
+
+{% block logo %}
+<img class="img1" src="{% static 'QuestionApp/img/2.jpg' %}"/>
+{% endblock %}
+
+{% block header_content %}
+<h2>Please Login with valid user credentials</h2>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post"> {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Login</button>
+</form>
+{% endblock %}

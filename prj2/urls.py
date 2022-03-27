@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls.resolvers import LocaleRegexDescriptor
 
 admin.site.site_header = ' Malaysia Survey '
 admin.site.site_title = 'Simple Survey'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include('QuestionApp.urls')),
 ]

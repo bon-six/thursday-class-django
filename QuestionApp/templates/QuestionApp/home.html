@@ -9,6 +9,11 @@
     <h1>
         my investigation questionnaire 3
     </h1>
+    {% if user.is_authenticated %}
+        <p><span>Welcome, {{user.username}}.</span> &ensp; <span><a href="{% url 'logout' %}">Logout</a></span></p>
+    {%else%}
+        <p><span><a href="{% url 'login' %}">Login</a></span></p>
+    {%endif%}
 {% endblock%}
 
 {% block content %}
@@ -17,6 +22,10 @@
         {% for q in question_list %}
             <li><a href="{% url 'question_detail' q.pk %}">{{ q.question_text}}</a></li><br>
         {% endfor %}
+        <br>
+        <div>
+            <a href="{% url 'start_vote' %}">  Participate the questionnaire  </a>
+        </div>
     {% else %}
         <p>There is no question published yet.</p>
     {% endif %}
